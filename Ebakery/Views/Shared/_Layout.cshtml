@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ebakery- Ο καλύτερος φούρνος</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/css.css" rel="stylesheet" />
+    @Styles.Render("~/Content/maincss.css")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+
+
+    <div class="jumbotron">
+        <div class="container text-center">
+            <img src="~/Content/WWW/images/bakerylogo.jpeg" alt="logo" width="150" height="100">
+            <p>Φρέσκα προϊόντα ζύμης με ποιότητα και σεβασμό στην παράδοση</p>
+        </div>
+    </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString()==
+                        "Index"?"active":"")">@Html.ActionLink("Αρχική","Index","Home") </li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString()==
+                        "Products"?"active":"")"><a href="~/Home/Products">Προϊόντα</a></li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString()==
+                        "Order"?"active":"")"><a href="~/Home/Order">Παραγγελία</a></li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString()==
+                        "Contact"?"active":"")"><a href="~/Home/Contact">Επικοινωνία</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="~/Home/Basket"><span class="glyphicon glyphicon-shopping-cart"></span> Το καλάθι μου</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a href="~/Home/UserUpdate">Καλώσορισες @User.Identity.Name</a></li>
+                        <li><a href="~/Home/Logout"><span class=""glyphicon glyphicon-user"></span> Έξοδος χρήστη</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="~/Home/LogIn"><span class="glyphicon glyphicon-user"></span> Είσοδος</a></li>
+                        <li><a href="~/Home/SignUp"><span class="glyphicon glyphicon-user"></span> Εγγραφή</a></li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    
+    <div class="container body-content">
+        
+        @RenderBody()
+
+        <footer class="container-fluid text-center">
+            <p>DLL Copyright</p>
+            <form class="form-inline" action="@Url.Action("RegisterNewsletter", "NewsLetter")" method="post">
+                <label for="newsletter">Επιθυμείτε να λαμβάνετε τις προσφορές μας</label>
+                <input id="newsletter" type="email" name="email" class="form-control" size="50" placeholder="Email Address">
+                <button type="submit" class="btn btn-danger">Εγγραφείτε στο Newsletter μας</button>
+            </form>
+        </footer>
+    
+    </div>
+
+
+    <!-- JavaScript files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

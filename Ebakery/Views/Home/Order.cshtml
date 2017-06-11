@@ -1,0 +1,182 @@
+﻿@model Ebakery.Models.CombinedViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6 col-md-push-6" style="background-color:#DCDCDC">
+        <h4>Στην ενδέκατη παραγγελία έχετε 10% έκπτωση!</h4>
+        <h4>Για περισσότερες προσφορές εγγραφείτε στο newsletter μας για να λαμβάνετε κουπόνια!</h4>
+    </div>
+    <div class="col-md-6 col-md-pull-6">
+        @using (Html.BeginForm("CouponValidation", "Home"))
+            {
+            <div class="form-group" style="color:darkred">
+                @Html.LabelFor(model => model.CouponCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.CouponCode, new { htmlAttributes = new { @class = "form-control" } })
+                    <input type="submit" value="Εισάγετε τον κωδικό σας" class="btn btn-default" />
+                </div>
+            </div>
+        }
+
+
+        @if (Session["Not valid"] != null)
+            {
+            <p>Το κουπόνι σας έχει λήξει</p>
+        }
+        @if (Session["Not accepted"] != null)
+            {
+            <p>Εισάγετε ξανά τον κωδικό σας</p>
+        }
+    </div>
+    <br />
+</div>
+<br />
+
+
+<div class="row">
+    <div class="col-md-4">
+        <button onclick="myFunction()"><b>@Model.Category.Categories[0]</b></button>
+        <table id="@Model.Category.Categories[0]" class="table table-borderless table-hover">
+            @foreach (var Product in Model.Products.Where(p => p.Category == Model.Category.Categories[0]))
+            {
+                <tr>
+                    <td>@Product.Name</td>
+                    <td>@Product.Price €</td>
+                    <td>@Html.ActionLink("Add", "Add", new { id = Product.Id })</td>
+                </tr>
+            }
+        </table>
+        @* }*@
+        <script>
+                function myFunction() {
+                    var x = document.getElementById('@Model.Category.Categories[0]');
+        if (x.style.display === 'none') {
+            x.style.display = 'block';
+        } else {
+            x.style.display = 'none';
+        }
+    }
+        </script>
+    </div>
+    <div class="col-md-4">
+        <button onclick="myFunction2()"><b>@Model.Category.Categories[1]</b></button>
+        <table id="@Model.Category.Categories[1]" class="table table-borderless table-hover">
+            @foreach (var Product in Model.Products.Where(p => p.Category == Model.Category.Categories[1]))
+            {
+                <tr>
+                    <td>@Product.Name</td>
+                    <td>@Product.Price €</td>
+                    <td> @Html.ActionLink("Add", "Add", new { id = Product.Id })</td>
+                </tr>
+            }
+        </table>
+        @* }*@
+        <script>
+                function myFunction2() {
+                    var x = document.getElementById('@Model.Category.Categories[1]');
+                    if (x.style.display === 'none') {
+                        x.style.display = 'block';
+                    } else {
+                        x.style.display = 'none';
+                    }
+                }
+        </script>
+    </div>
+    <div class="col-md-4">
+        <button onclick="myFunction3()"><b>@Model.Category.Categories[2]</b></button>
+        <table id="@Model.Category.Categories[2]" class="table table-borderless table-hover">
+            @foreach (var Product in Model.Products.Where(p => p.Category == Model.Category.Categories[2]))
+            {
+                <tr>
+                    <td>@Product.Name</td>
+                    <td>@Product.Price €</td>
+                    <td> @Html.ActionLink("Add", "Add", new { id = Product.Id })</td>
+                </tr>
+            }
+        </table>
+        <script>
+                function myFunction3() {
+                    var x = document.getElementById('@Model.Category.Categories[2]');
+                    if (x.style.display === 'none') {
+                        x.style.display = 'block';
+                    } else {
+                        x.style.display = 'none';
+                    }
+                }
+        </script>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <button onclick="myFunction4()"><b>@Model.Category.Categories[3]</b></button>
+        <table id="@Model.Category.Categories[3]" class="table table-borderless table-hover">
+            @foreach (var Product in Model.Products.Where(p => p.Category == Model.Category.Categories[3]))
+            {
+                <tr>
+                    <td>@Product.Name</td>
+                    <td>@Product.Price €</td>
+                    <td> @Html.ActionLink("Add", "Add", new { id = Product.Id })</td>
+                </tr>
+            }
+        </table>
+
+        <script>
+                function myFunction4() {
+                    var x = document.getElementById('@Model.Category.Categories[3]');
+                    if (x.style.display === 'none') {
+                        x.style.display = 'block';
+                    } else {
+                        x.style.display = 'none';
+                    }
+                }
+        </script>
+    </div>
+    <div class="col-md-4">
+        <button onclick="myFunction5()"><b>@Model.Category.Categories[4]</b></button>
+        <table id="@Model.Category.Categories[4]" class="table table-borderless table-hover">
+            @foreach (var Product in Model.Products.Where(p => p.Category == Model.Category.Categories[4]))
+            {
+                <tr>
+                    <td>@Product.Name</td>
+                    <td>@Product.Price €</td>
+                    <td> @Html.ActionLink("Add", "Add", new { id = Product.Id })</td>
+                </tr>
+            }
+        </table>
+        <script>
+                function myFunction5() {
+                    var x = document.getElementById('@Model.Category.Categories[4]');
+                    if (x.style.display === 'none') {
+                        x.style.display = 'block';
+                    } else {
+                        x.style.display = 'none';
+                    }
+                }
+        </script>
+    </div>
+    <div class="col-md-4">
+        <button onclick="myFunction6()"><b>@Model.Category.Categories[5]</b></button>
+        <table id="@Model.Category.Categories[5]" class="table table-borderless table-hover">
+            @foreach (var Product in Model.Products.Where(p => p.Category == Model.Category.Categories[5]))
+            {
+                <tr>
+                    <td>@Product.Name</td>
+                    <td>@Product.Price €</td>
+                    <td> @Html.ActionLink("Add", "Add", new { id = Product.Id })</td>
+                </tr>
+            }
+        </table>
+        <script>
+                function myFunction6() {
+                    var x = document.getElementById('@Model.Category.Categories[5]');
+                    if (x.style.display === 'none') {
+                        x.style.display = 'block';
+                    } else {
+                        x.style.display = 'none';
+                    }
+                }
+        </script>
+    </div>
+</div>

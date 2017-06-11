@@ -1,0 +1,35 @@
+﻿@model Ebakery.Models.Basket
+
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model.Products.Count == 0)
+{
+    <h1>Το καλάθι σας είναι άδειο!!</h1>
+    <br />
+    if (!User.Identity.IsAuthenticated) { 
+    <p>Για να μπορέσετε να παραγείλετε πρέπει να κάνετε είσοδο ή εγγραφή </p>}
+}
+else
+{ <table class="table table-borderless table-hover">
+
+    @foreach (var product in Model.Products)
+    {
+        <tr>
+            <td> @product.Name @product.Price </td>
+            <td>@Html.ActionLink("Remove", "Remove", new { id = product.Id })</td>
+        </tr>
+    }
+    <tr>
+        <td>Total= @Model.Price €</td>
+    </tr>
+</table>
+
+}
+
+@if (User.Identity.IsAuthenticated || Model.Products.Count == 0)
+{
+    @Html.ActionLink("Αποστολή", "SendOrder")
+}
