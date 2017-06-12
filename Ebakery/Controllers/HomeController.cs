@@ -94,6 +94,7 @@ namespace Ebakery.Controllers
             FormsAuthentication.SignOut();
             Session["basket"] = null;
             TempData["coupon"] = null;
+            TempData["check"] = null;
             Session["User"] = null;
             Session["Not valid"] = null;
             Session["Not accepted"] = null;
@@ -125,13 +126,9 @@ namespace Ebakery.Controllers
 
                 int y = db.Orders.Where(x => x.CustomerId == CheckDiscount.Id && x.HasDiscount == false).Count();
 
-                if (y == 10)
+                if (y > 9)
                 {
-                    //           decimal count = 0;
-                    //               foreach (var item in ((Basket)Session["basket"]).Products)
-                    //               {
-                    //                   count = count + item.Price;
-                    //               }
+                    
                     List<Product> p = ((Basket)Session["basket"]).Products;
                     ((Basket)Session["basket"]).Price = 0.9M * p.Sum(x => x.Price);
                     TempData["check"] = 1;
