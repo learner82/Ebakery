@@ -16,7 +16,7 @@
 
 <body>
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse" >
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -31,9 +31,9 @@
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() ==
                         "Index" ? "active" : "")"><a href="~/Admin/Index">Άρχικη</a></li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() ==
-                        "CouponCreation" ? "active" : "")"><a href="~/Admin/CouponCreation">Δημιουργήστε ένα κουπόνι</a></li>
+                        "CouponCreation" ? "active" : "")"><a href="~/Admin/CouponCreation">Δημιουργία κουπονιών</a></li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() ==
-                        "MyCustomers" ? "active" : "")"><a href="~/Admin/MyCustomers">Οι Πελάτες μας</a></li>
+                        "MyCustomers" ? "active" : "")"><a href="~/Admin/MyCustomers">Πελάτες μας</a></li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() ==
                         "Coupons" ? "active" : "")"><a href="~/Admin/Coupons">Διαθέσιμα κουπόνια</a></li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() ==

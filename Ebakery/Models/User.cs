@@ -16,13 +16,13 @@ namespace Ebakery.Models
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Name Should be minimum 3 characters and a maximum of 100 characters")]
         [DataType(DataType.Text)]
         [Required(ErrorMessage = "Παρακαλώ εισάγετε όνομα")]
-
+        [Display(Name = "Όνομα")]
         public string Name { get; set; }
 
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Surname Should be minimum 3 characters and a maximum of 100 characters")]
         [DataType(DataType.Text)]
         [Required(ErrorMessage = "Παρακαλώ εισάγετε επώνυμο")]
-
+        [Display(Name = "Επώνυμο")]
         public string Surname { get; set; }
 
         [DataType(DataType.PhoneNumber)]
@@ -34,13 +34,16 @@ namespace Ebakery.Models
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Streetname Should be minimum 3 characters and a maximum of 100 characters")]
         [DataType(DataType.Text)]
         [Required(ErrorMessage = "Παρακαλώ εισάγετε οδό")]
+        [Display(Name = "Οδός")]
         public string StreetName { get; set; }
 
 
         [Required(ErrorMessage = "Παρακαλώ εισάγετε αριθμό")]
+        [Display(Name = "Αριθμός")]
         public string StreetNumber { get; set; }
 
         [RegularExpression(@"^\d{5}")]
+        [Display(Name = "Τ.Κ.")]
         public string ZipCode { get; set; }
 
         [Required(ErrorMessage = "Email is required")]

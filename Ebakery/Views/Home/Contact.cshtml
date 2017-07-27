@@ -3,7 +3,7 @@
 
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="row">
+@*<div class="row">
     <div class="col-sm-12">
         <p> Για τηλεφωνική παραγγελία παρακαλώ επικοινωνείστε μαζί μας στα παρακάτω τηλέφωνα.</p>
         <p>
@@ -46,5 +46,52 @@
 <div>
     <a name="bottom"></a>
 </div>
-
+    *@
+<h3>Επικοινωνήστε μαζί μας</h3><hr />
+<div class="row">
+    <div class="col-sm-3">
+        <h4>Διεύθυνση καταστήματος:</h4>
+        <p>Παραθύρα 18, 16343 <br>Ηλιούπολη </p>
+        <!-- Trigger the modal with the link -->
+        <p>
+            Δες στον <a href="#" data-toggle="modal" data-target="#myMapModal"><b>χάρτη</b></a>
+        </p>
+        <div class="container">
+            <!-- Modal -->
+            <div class="modal fade" id="myMapModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe title="iframe" class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3146.831915293686!2d23.75862371561498!3d37.93435701073435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd8853a5371b%3A0x30f53b50ad631313!2zzqDOsc-BzrHOuM-Nz4HOsSAxOCwgzpfOu865zr_Pjc-Azr_Ou863IDE2MyA0Mw!5e0!3m2!1sel!2sgr!4v1478649449165" width="300" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <h4>Ηλεκτρονική παραγγελία:</h4>
+        <p>
+            Εάν είστε νέος χρήστης, παρακαλώ κάντε <a href="#" data-toggle="modal" data-target="#mySignUpModal"><b>εγγραφή χρήστη</b></a>.
+            <br>Εάν είστε ήδη εγγεγραμμένος χρήστης, παρακαλώ κάντε <a href="#" data-toggle="modal" data-target="#myLoginModal"><b>είσοδο χρήστη</b></a>.
+        </p>
+    </div>
+    <div class="col-sm-3">
+        <h4>Τηλεφωνική παραγγελία:</h4>
+        <p>
+            210-6655879
+            <br />210-6655880
+        </p>
+    </div>
+</div>
+<hr />
+<div>
+    <a name="bottom"></a>
+</div>
 

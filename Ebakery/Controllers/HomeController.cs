@@ -12,7 +12,6 @@ namespace Ebakery.Controllers
     public class HomeController : Controller
     {
         private MyContext db = new MyContext();
-
         public ActionResult Index()
         {
 
@@ -31,7 +30,7 @@ namespace Ebakery.Controllers
 
         public ActionResult SignUp()
         {
-            return View();
+            return PartialView();
         }
 
         [HttpPost]
@@ -89,6 +88,37 @@ namespace Ebakery.Controllers
             }
         }
 
+        public ActionResult LogModal()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogModal(string Email, string Password)
+        {
+            User u = db.Users.FirstOrDefault((x => x.Email == Email && x.Password == Password));
+            if (u == null)
+            {
+                ViewBag.NotMatching = true;
+                return RedirectToAction("Login");
+            }
+            if (u.IsAdmin == false)
+            {
+                var name = u.Name;
+                // Login Successful
+                FormsAuthentication.SetAuthCookie(name, false);
+                Session.Add("User", u);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                var name = u.Name;
+                // Login Successful
+                FormsAuthentication.SetAuthCookie("Admin", false);
+                Session.Add("User", u);
+                return RedirectToAction("Index", "Admin");
+            }
+        }
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
@@ -100,16 +130,12 @@ namespace Ebakery.Controllers
             Session["Not accepted"] = null;
             return RedirectToAction("Index");
         }
-
-        public ActionResult Cart()
-        {
-            return View();
-        }
-
+        
 
         [Authorize]
         public ActionResult Add(int id)
         {
+            
             if (Session["User"] != null)
             {
                 if (Session["basket"] == null)
@@ -152,7 +178,7 @@ namespace Ebakery.Controllers
                 return RedirectToAction("LogIn");
             }
 
-            return RedirectToAction("Order");
+            return Json(new { success = true, responseText = "Your message successfuly sent!" }, JsonRequestBehavior.AllowGet);
 
         }
 
@@ -206,10 +232,11 @@ namespace Ebakery.Controllers
                 if (((Basket)Session["basket"]).Products.Where(p => p == product).Count() > 0)
                 {
                     ((Basket)Session["basket"]).Products.Remove(product);
+                   
                 }
                 if (TempData["coupon"] != null && ((Coupon)TempData["coupon"]).DiscountCategory == product.Category)
                 {
-                    ((Basket)Session["basket"]).Price -= (product.Price * ((Coupon)TempData["coupon"]).Discount);
+                    ((Basket)Session["basket"]).Price -= (product.Price - product.Price * ((Coupon)TempData["coupon"]).Discount );
 
                 }
                 else
@@ -219,7 +246,7 @@ namespace Ebakery.Controllers
 
 
             }
-            return RedirectToAction("Basket");
+            return RedirectToAction("Order");
 
         }
 
@@ -235,6 +262,20 @@ namespace Ebakery.Controllers
             }
 
             return View((Basket)Session["basket"]);
+        }
+
+        public ActionResult Cart()
+        {
+            if (Session["basket"] == null)
+            {
+                Basket basket = new Basket();
+
+                basket.Price = 0;
+                Session["basket"] = basket;
+
+            }
+
+            return PartialView((Basket)Session["basket"]);
         }
 
         [Authorize]

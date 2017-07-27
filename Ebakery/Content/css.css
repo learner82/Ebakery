@@ -45,3 +45,101 @@
 .table-borderless > thead > tr > th{
     border: none;
 }
+
+.fixed {
+    position: fixed !important;
+    top: 20px;
+    margin-left: 780px;
+    /*     background-color: #0f0 !important; */
+}
+
+.rmv item {
+    text-decoration: none;
+    padding: 2px 6px;
+}
+
+.basketitem {
+    display: inline-block;
+    padding: 2px 6px;
+    text-align: justify;
+    vertical-align: middle;
+    width: 100%
+}
+
+#send {
+    display: inline-block;
+    background-color: #ff9f80;
+    padding: 2px 6px;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 2px solid #ff9f80;
+    border-radius: 5px;
+}
+
+
+.basketitem2 {
+    /*   display: inline-block;*/
+    border-bottom: 1px solid lightgrey;
+    padding: 2px 6px;
+    text-align: justify;
+    vertical-align: middle;
+}
+
+.hoverable:hover {
+    background-color: #E8E8E8;
+}
+
+#shopping-cart {
+    border: 2px solid grey;
+    border-radius: 5px;
+    width: 380px;
+    position: relative;
+    -moz-box-shadow: 0 0 5px #999;
+    -webkit-box-shadow: 0 0 5px #999;
+    box-shadow: 0 0 5px blue;
+    max-width: 100%;
+    max-height: 80%;
+    overflow: auto;
+}
+
+.offers {
+    border: 2px solid grey;
+    width: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 5px grey;
+}
+
+#mycart {
+    margin: 0 auto;
+}
+
+.basketprice {
+    display: inline-block;
+    text-align: center;
+    border-bottom: 1px solid #ebebeb;
+    padding: 2px 6px;
+    background-color: #e6f3ff;
+}
+
+#basketicon {
+    display: inline-block;
+    padding: 2px 6px;
+    text-align: center;
+}
+
+.glyphicon.glyphicon-shopping-cart {
+    font-size: 20px;
+    color: dimgrey;
+}
+
+#baskettop {
+    border-bottom: 1px solid grey;
+    margin-top: 10px;
+}
+
+.categories:hover {
+    width: auto;
+    background-color: #E8E8E8;
+}

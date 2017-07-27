@@ -175,6 +175,10 @@
     <Compile Include="Migrations\201706112332387_test.Designer.cs">
       <DependentUpon>201706112332387_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707261813362_visiblechanges.cs" />
+    <Compile Include="Migrations\201707261813362_visiblechanges.Designer.cs">
+      <DependentUpon>201707261813362_visiblechanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Basket.cs" />
     <Compile Include="Models\Category.cs" />
@@ -199,10 +203,12 @@
     <Content Include="Content\WWW\images\bakery1.jpg" />
     <Content Include="Content\WWW\images\bakery2.jpg" />
     <Content Include="Content\WWW\images\bakery3.jpg" />
+    <Content Include="Content\WWW\images\bakery4.jpg" />
     <Content Include="Content\WWW\images\bakerylogo.jpeg" />
     <Content Include="Content\WWW\images\bg-header.png" />
     <Content Include="Content\WWW\images\bread.jpg" />
     <Content Include="Content\WWW\images\coffee.jpg" />
+    <Content Include="Content\WWW\images\coffees.jpg" />
     <Content Include="Content\WWW\images\download %281%29.jpg" />
     <Content Include="Content\WWW\images\download.jpg" />
     <Content Include="Content\WWW\images\images %281%29.jpg" />
@@ -215,6 +221,8 @@
     <Content Include="Content\WWW\images\rsz_offcheese.png" />
     <Content Include="Content\WWW\images\rsz_offcoffee.png" />
     <Content Include="Content\WWW\images\rsz_offjuice.png" />
+    <Content Include="Content\WWW\images\sandwich.jpg" />
+    <Content Include="Content\WWW\images\shopping.png" />
     <Content Include="Content\WWW\images\spanakopita1.jpg" />
     <Content Include="Content\WWW\images\sweets.jpg" />
     <Content Include="Content\WWW\images\woods.jpg" />
@@ -275,6 +283,8 @@
     <Content Include="Views\Home\Basket.cshtml" />
     <Content Include="Views\Home\SendOrder.cshtml" />
     <Content Include="Views\Home\UserUpdate.cshtml" />
+    <Content Include="Views\Home\cart.cshtml" />
+    <Content Include="Views\Home\LogModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -311,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706112332387_test.resx">
       <DependentUpon>201706112332387_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707261813362_visiblechanges.resx">
+      <DependentUpon>201707261813362_visiblechanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
